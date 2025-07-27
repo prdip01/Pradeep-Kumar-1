@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pradeep Kumar - Personal Page</title>
+    
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter and Dancing Script for the name -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /* Custom styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-tap-highlight-color: transparent; /* Removes blue highlight on tap for mobile */
+        }
+        .font-dancing-script {
+            font-family: 'Dancing Script', cursive;
+        }
+        /* Style for the modal backdrop */
+        .modal-backdrop {
+            background-color: rgba(0, 0, 0, 0.6);
+            transition: opacity 0.3s ease-in-out;
+            backdrop-filter: blur(4px);
+        }
+        /* Animation for modal content */
+        .modal-content {
+            transition: transform 0.3s ease-in-out;
+        }
+        /* Hide scrollbar for the body when modal is open */
+        .modal-open {
+            overflow: hidden;
+        }
+        /* Glassmorphism effect for cards */
+        .card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .dark .card {
+            background: rgba(31, 41, 55, 0.6); /* gray-800 with opacity */
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-cyan-100 via-blue-200 to-purple-200 dark:from-gray-800 dark:via-slate-900 dark:to-black text-gray-800 dark:text-gray-200">
+
+    <div class="container mx-auto p-4 sm:p-6 md:p-8 max-w-2xl">
+
+        <!-- ============== PROFILE SECTION ============== -->
+        <div class="text-center">
+            <img 
+                src="image copy.png" 
+                alt="Pradeep Kumar" 
+                class="w-32 h-32 mx-auto mb-4 border-4 border-transparent shadow-lg object-cover"
+                onerror="this.onerror=null; this.src='https://placehold.co/150x150/E2E8F0/4A5568?text=Error';"
+            >
+            <h1 class="text-6xl text-gray-900 dark:text-white font-dancing-script font-bold">Pradeep Kumar</h1>
+        </div>
+
+        <!-- ============== CONNECT LINKS SECTION ============== -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 my-8">
+            <!-- Call -->
+            <a href="tel:+919304143918" class="text-white p-4 rounded-lg shadow-md hover:shadow-lg transition-all transform hover:-translate-y-1 flex items-center justify-center space-x-2 bg-green-500 hover:bg-green-600">
+                <i class="fas fa-phone"></i>
+                <span class="font-semibold">Call Me</span>
+            </a>
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/prdip01?igsh=YjJqYTc5cTFjemFk&utm_source=qr" target="_blank" class="text-white p-4 rounded-lg shadow-md hover:shadow-lg transition-all transform hover:-translate-y-1 flex items-center justify-center space-x-2 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500">
+                <i class="fab fa-instagram"></i>
+                <span class="font-semibold">Instagram</span>
+            </a>
+            <!-- WhatsApp -->
+            <a href="https://wa.me/9304143918" target="_blank" class="text-white p-4 rounded-lg shadow-md hover:shadow-lg transition-all transform hover:-translate-y-1 flex items-center justify-center space-x-2 bg-teal-500 hover:bg-teal-600">
+                <i class="fab fa-whatsapp"></i>
+                <span class="font-semibold">WhatsApp</span>
+            </a>
+            <!-- LinkedIn -->
+            <a href="https://www.linkedin.com/in/pradeep-kumar-53a9502a6?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" class="text-white p-4 rounded-lg shadow-md hover:shadow-lg transition-all transform hover:-translate-y-1 flex items-center justify-center space-x-2 bg-blue-600 hover:bg-blue-700">
+                <i class="fab fa-linkedin"></i>
+                <span class="font-semibold">LinkedIn</span>
+            </a>
+            <!-- Mail -->
+            <a href="mailto:iamprdip160@gmail.com" class="text-white p-4 rounded-lg shadow-md hover:shadow-lg transition-all transform hover:-translate-y-1 flex items-center justify-center space-x-2 bg-red-500 hover:bg-red-600">
+                <i class="fas fa-envelope"></i>
+                <span class="font-semibold">Mail</span>
+            </a>
+            <!-- GitHub -->
+            <a href="https://github.com/prdip01" target="_blank" class="text-white p-4 rounded-lg shadow-md hover:shadow-lg transition-all transform hover:-translate-y-1 flex items-center justify-center space-x-2 bg-gray-800 hover:bg-black">
+                <i class="fab fa-github"></i>
+                <span class="font-semibold">GitHub</span>
+            </a>
+        </div>
+
+        <!-- ============== PAY ME SECTION ============== -->
+        <div class="card p-6 rounded-lg shadow-lg text-center">
+            <h2 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">Pay Me</h2>
+            <p class="text-gray-700 dark:text-gray-300 mb-2">My UPI ID:</p>
+            <div class="flex items-center justify-center bg-gray-100 dark:bg-gray-700 rounded-lg p-2 max-w-xs mx-auto">
+                <span id="upiId" class="font-mono text-lg flex-grow text-gray-800 dark:text-gray-200">prdip01@ybl</span>
+                <button id="copyBtn" class="ml-4 bg-gradient-to-r from-blue-500 to-cyan-400 hover:from-blue-600 hover:to-cyan-500 text-white font-bold py-1 px-3 rounded-md transition-all shadow-md">
+                    Copy
+                </button>
+            </div>
+            <p id="copyFeedback" class="text-green-600 dark:text-green-400 h-5 mt-1 text-sm font-semibold"></p>
+            
+            <button id="showQrBtn" class="mt-4 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-bold py-2 px-4 rounded-md transition-all shadow-md">
+                Pay with QR
+            </button>
+            
+            <img 
+                id="qrCodeImage"
+                src="PHOTO-2025-07-27-14-10-24.jpg" 
+                alt="UPI QR Code" 
+                class="w-40 h-40 mx-auto rounded-lg cursor-pointer transition-transform hover:scale-105 shadow-lg mt-4 hidden"
+                onerror="this.onerror=null; this.src='https://placehold.co/200x200/ffffff/000000?text=Error';"
+            >
+        </div>
+
+        <!-- ============== FOUND ITEM SECTION ============== -->
+        <div class="card p-6 rounded-lg shadow-lg text-center mt-8">
+            <h2 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">Found an Item?</h2>
+            <p class="text-gray-700 dark:text-gray-300 mb-5">If you've found one of my belongings, please click the corresponding button below to notify me. Thank you!</p>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                <button class="found-item-btn bg-white/80 dark:bg-gray-700/80 hover:bg-white dark:hover:bg-gray-700 p-4 rounded-lg font-semibold transition-colors shadow" data-item="MacBook">
+                    <i class="fas fa-laptop mr-2 text-blue-500"></i>MacBook
+                </button>
+                <button class="found-item-btn bg-white/80 dark:bg-gray-700/80 hover:bg-white dark:hover:bg-gray-700 p-4 rounded-lg font-semibold transition-colors shadow" data-item="iPhone">
+                    <i class="fas fa-mobile-alt mr-2 text-slate-500"></i>iPhone
+                </button>
+                <button class="found-item-btn bg-white/80 dark:bg-gray-700/80 hover:bg-white dark:hover:bg-gray-700 p-4 rounded-lg font-semibold transition-colors shadow" data-item="Tab">
+                    <i class="fas fa-tablet-alt mr-2 text-purple-500"></i>Tab
+                </button>
+                <button class="found-item-btn bg-white/80 dark:bg-gray-700/80 hover:bg-white dark:hover:bg-gray-700 p-4 rounded-lg font-semibold transition-colors shadow" data-item="Purse">
+                    <i class="fas fa-wallet mr-2 text-orange-500"></i>Purse
+                </button>
+                <button class="found-item-btn col-span-2 md:col-span-1 bg-white/80 dark:bg-gray-700/80 hover:bg-white dark:hover:bg-gray-700 p-4 rounded-lg font-semibold transition-colors shadow" data-item="Other Item">
+                    <i class="fas fa-box mr-2 text-green-500"></i>Other Item
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============== MODAL FOR ITEM CONFIRMATION ============== -->
+    <div id="itemModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden">
+        <div class="modal-backdrop fixed inset-0"></div>
+        <div class="modal-content card rounded-lg shadow-2xl w-full max-w-sm mx-auto z-10 transform scale-95">
+            <div class="p-6 text-center">
+                <h3 class="text-lg font-semibold mb-4 text-gray-900 dark:text-white">Confirm Action</h3>
+                <p id="modalText" class="text-gray-700 dark:text-gray-300 mb-6">Are you sure you found this item?</p>
+                <div class="flex justify-center gap-4">
+                    <button id="modalNoBtn" class="px-6 py-2 rounded-md bg-gray-300 dark:bg-gray-600 hover:bg-gray-400 dark:hover:bg-gray-500 font-semibold transition-colors">No</button>
+                    <button id="modalYesBtn" class="px-6 py-2 rounded-md bg-green-500 hover:bg-green-600 text-white font-semibold transition-colors">Yes, I found it</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- ============== MODAL FOR CONTACT OPTIONS ============== -->
+    <div id="contactOptionsModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden">
+        <div class="modal-backdrop fixed inset-0"></div>
+        <div class="modal-content card rounded-lg shadow-2xl w-full max-w-sm mx-auto z-10 transform scale-95">
+            <div class="p-6 text-center">
+                <h3 class="text-lg font-semibold mb-2 text-gray-900 dark:text-white">How would you like to notify me?</h3>
+                <p class="text-gray-600 dark:text-gray-400 mb-6">Thank you for your help!</p>
+                <div class="flex flex-col gap-3">
+                    <a id="callOwnerBtn" href="tel:+919304143918" class="block w-full text-center text-white p-3 rounded-lg shadow-md transition-all flex items-center justify-center space-x-2 bg-green-500 hover:bg-green-600">
+                        <i class="fas fa-phone"></i>
+                        <span class="font-semibold">Call Owner</span>
+                    </a>
+                    <a id="emailOwnerBtn" href="#" class="block w-full text-center text-white p-3 rounded-lg shadow-md transition-all flex items-center justify-center space-x-2 bg-red-500 hover:bg-red-600">
+                        <i class="fas fa-envelope"></i>
+                        <span class="font-semibold">Email Owner</span>
+                    </a>
+                    <button id="shareLocationBtn" class="w-full text-white p-3 rounded-lg shadow-md transition-all flex items-center justify-center space-x-2 bg-blue-500 hover:bg-blue-600">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span class="font-semibold">Share My Location</span>
+                    </button>
+                </div>
+                <button id="cancelContactBtn" class="mt-6 text-sm text-gray-600 dark:text-gray-400 hover:underline">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============== MODAL FOR QR CODE ============== -->
+    <div id="qrModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden">
+        <div id="qrModalBackdrop" class="modal-backdrop fixed inset-0"></div>
+        <div class="relative z-10">
+             <img 
+                src="https://placehold.co/300x300/ffffff/000000?text=Scan+to+Pay" 
+                alt="Enlarged UPI QR Code" 
+                class="rounded-lg shadow-2xl"
+                onerror="this.onerror=null; this.src='https://placehold.co/300x300/ffffff/000000?text=Error';"
+            >
+            <button id="closeQrModal" class="absolute -top-3 -right-3 bg-white text-black rounded-full h-8 w-8 flex items-center justify-center shadow-lg">&times;</button>
+        </div>
+    </div>
+
+    <!-- ============== NOTIFICATION TOAST ============== -->
+    <div id="toast" class="fixed bottom-5 right-5 bg-gradient-to-r from-green-500 to-emerald-600 text-white py-3 px-5 rounded-lg shadow-lg opacity-0 translate-y-10 transition-all duration-300">
+        Toast Message
+    </div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- UPI ID Copy Functionality ---
+            const copyBtn = document.getElementById('copyBtn');
+            const upiIdSpan = document.getElementById('upiId');
+            const copyFeedback = document.getElementById('copyFeedback');
+
+            copyBtn.addEventListener('click', () => {
+                const textArea = document.createElement('textarea');
+                textArea.value = upiIdSpan.textContent;
+                document.body.appendChild(textArea);
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    copyFeedback.textContent = 'Copied!';
+                } catch (err) {
+                    copyFeedback.textContent = 'Failed to copy';
+                    console.error('Fallback: Oops, unable to copy', err);
+                }
+                document.body.removeChild(textArea);
+                setTimeout(() => {
+                    copyFeedback.textContent = '';
+                }, 2000);
+            });
+
+            // --- QR Code Toggling and Modal Functionality ---
+            const showQrBtn = document.getElementById('showQrBtn');
+            const qrCodeImage = document.getElementById('qrCodeImage');
+            const qrModal = document.getElementById('qrModal');
+            const closeQrModalBtn = document.getElementById('closeQrModal');
+            const qrModalBackdrop = document.getElementById('qrModalBackdrop');
+            
+            showQrBtn.addEventListener('click', () => {
+                qrCodeImage.classList.toggle('hidden');
+                if (qrCodeImage.classList.contains('hidden')) {
+                    showQrBtn.textContent = 'Pay with QR';
+                } else {
+                    showQrBtn.textContent = 'Hide QR';
+                }
+            });
+            
+            const openQrModal = () => {
+                qrModal.classList.remove('hidden');
+                document.body.classList.add('modal-open');
+            };
+            const closeQrModal = () => {
+                qrModal.classList.add('hidden');
+                 document.body.classList.remove('modal-open');
+            };
+
+            qrCodeImage.addEventListener('click', openQrModal);
+            closeQrModalBtn.addEventListener('click', closeQrModal);
+            qrModalBackdrop.addEventListener('click', closeQrModal);
+
+
+            // --- Found Item Modal Functionality ---
+            const itemModal = document.getElementById('itemModal');
+            const modalText = document.getElementById('modalText');
+            const modalYesBtn = document.getElementById('modalYesBtn');
+            const modalNoBtn = document.getElementById('modalNoBtn');
+            const foundItemButtons = document.querySelectorAll('.found-item-btn');
+            const toast = document.getElementById('toast');
+            let currentItem = '';
+            
+            // --- Contact Options Modal ---
+            const contactOptionsModal = document.getElementById('contactOptionsModal');
+            const emailOwnerBtn = document.getElementById('emailOwnerBtn');
+            const shareLocationBtn = document.getElementById('shareLocationBtn');
+            const cancelContactBtn = document.getElementById('cancelContactBtn');
+
+
+            const showToast = (message) => {
+                toast.textContent = message;
+                toast.classList.remove('opacity-0', 'translate-y-10');
+                setTimeout(() => {
+                    toast.classList.add('opacity-0', 'translate-y-10');
+                }, 3000);
+            }
+
+            const openItemModal = (itemName) => {
+                currentItem = itemName;
+                modalText.textContent = `Are you sure you found the ${itemName}?`;
+                itemModal.classList.remove('hidden');
+                document.body.classList.add('modal-open');
+            };
+
+            const closeItemModal = () => {
+                itemModal.classList.add('hidden');
+                if(!contactOptionsModal.classList.contains('hidden')) {
+                    // do not remove modal-open if contact modal is open
+                } else {
+                    document.body.classList.remove('modal-open');
+                }
+            };
+            
+            const openContactOptionsModal = () => {
+                const recipient = 'iamprdip160@gmail.com';
+                const subject = `I have found your ${currentItem}!`;
+                const body = `Hello Pradeep,\n\nI have found your ${currentItem}. Please contact me to arrange its return.\n\nThank you.`;
+                emailOwnerBtn.href = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+                contactOptionsModal.classList.remove('hidden');
+                document.body.classList.add('modal-open');
+            };
+
+            const closeContactOptionsModal = () => {
+                contactOptionsModal.classList.add('hidden');
+                document.body.classList.remove('modal-open');
+            };
+
+            foundItemButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const itemName = button.getAttribute('data-item');
+                    openItemModal(itemName);
+                });
+            });
+
+            modalNoBtn.addEventListener('click', closeItemModal);
+            itemModal.querySelector('.modal-backdrop').addEventListener('click', closeItemModal);
+
+            modalYesBtn.addEventListener('click', () => {
+                closeItemModal();
+                openContactOptionsModal();
+            });
+
+            cancelContactBtn.addEventListener('click', closeContactOptionsModal);
+            contactOptionsModal.querySelector('.modal-backdrop').addEventListener('click', closeContactOptionsModal);
+
+            shareLocationBtn.addEventListener('click', () => {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition((position) => {
+                        const lat = position.coords.latitude;
+                        const lon = position.coords.longitude;
+                        const url = `https://www.google.com/maps?q=${lat},${lon}`;
+                        window.open(url, '_blank');
+                        closeContactOptionsModal();
+                    }, () => {
+                        showToast('Could not get location. Please enable it in your browser.');
+                    });
+                } else {
+                    showToast('Geolocation is not supported by this browser.');
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
