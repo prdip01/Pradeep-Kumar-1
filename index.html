@@ -104,7 +104,7 @@
                 </a>
 
                 <!-- Email -->
-                <a href="iamprdip160@gmail.com" class="flex flex-col items-center gap-2 group">
+                <a href="mailto:iamprdip160@gmail.com" class="flex flex-col items-center gap-2 group">
                     <div class="w-12 h-12 rounded-2xl bg-gray-800 flex items-center justify-center group-hover:bg-red-500 transition-colors duration-300 btn-hover">
                         <i class="fas fa-envelope text-lg text-white"></i>
                     </div>
@@ -112,7 +112,7 @@
                 </a>
 
                 <!-- Instagram -->
-                <a href="https://www.instagram.com/prdip01?igsh=YjJqYTc5cTFjemFk&utm_source=qr" target="_blank" class="flex flex-col items-center gap-2 group">
+                <a href="https://instagram.com/iamprdip160" target="_blank" class="flex flex-col items-center gap-2 group">
                     <div class="w-12 h-12 rounded-2xl bg-gray-800 flex items-center justify-center group-hover:bg-pink-600 transition-colors duration-300 btn-hover">
                         <i class="fab fa-instagram text-xl text-white"></i>
                     </div>
@@ -145,7 +145,7 @@
                                 <p class="text-xs text-gray-500">UPI ID</p>
                                 <p class="text-sm font-mono text-white truncate" id="upi-id">9304143918@kotak811</p>
                             </div>
-                            <button onclick="copyText('alex@upi.bank')" class="text-indigo-400 hover:text-indigo-300 p-2">
+                            <button onclick="copyText('9304143918@kotak811')" class="text-indigo-400 hover:text-indigo-300 p-2">
                                 <i class="far fa-copy"></i>
                             </button>
                         </div>
@@ -220,15 +220,15 @@
             </div>
 
             <!-- Save Contact Button -->
-            <button class="w-full py-3 mt-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full font-bold shadow-lg shadow-purple-500/30 btn-hover">
-                Save Contact
+            <button onclick="downloadVCard()" class="w-full py-3 mt-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full font-bold shadow-lg shadow-purple-500/30 btn-hover flex items-center justify-center gap-2">
+                <i class="fas fa-user-plus"></i> Save Contact
             </button>
 
         </div>
 
         <!-- Footer -->
         <div class="bg-gray-900 py-4 text-center border-t border-gray-800">
-            <p class="text-xs text-gray-600">© Pradeep Kumar. All rights reserved.</p>
+            <p class="text-xs text-gray-600">© 2025 Pradeep Kumar. All rights reserved.</p>
         </div>
 
     </div>
@@ -288,6 +288,34 @@
             setTimeout(() => {
                 toast.classList.add('opacity-0');
             }, 2000);
+        }
+
+        // Generate and Download vCard
+        function downloadVCard() {
+            // vCard data
+            const vcard = `BEGIN:VCARD
+VERSION:3.0
+FN:Pradeep Kumar
+TITLE:Computer Science Engineer
+TEL;TYPE=CELL:+919304143918
+EMAIL:iamprdip160@gmail.com
+URL:https://wa.me/919304143918
+END:VCARD`;
+
+            // Create blob and download link
+            const blob = new Blob([vcard], { type: 'text/vcard' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            
+            link.href = url;
+            link.download = 'Pradeep_Kumar.vcf';
+            document.body.appendChild(link);
+            link.click();
+            
+            // Cleanup
+            document.body.removeChild(link);
+            URL.revokeObjectURL(url);
+            showToast("Downloading Contact...");
         }
     </script>
 </body>
